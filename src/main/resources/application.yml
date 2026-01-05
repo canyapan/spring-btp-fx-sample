@@ -1,0 +1,24 @@
+logging:
+  level:
+    root: error
+    com.canyapan.sample: warn
+
+spring:
+  application:
+    name: spring-btp-fx-sample
+
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: ${vcap.services.xsuaa.credentials.jwksurl}
+
+fx:
+  api:
+    base-url: https://hexarate.paikama.co/api/
+    allowed-currencies: USD,EUR,GBP
+
+sap:
+  s4:
+    base-url: https://my-tenant.s4hana.ondemand.com/sap/opu/odata/sap/
+    max-token-age: 25m

@@ -1,0 +1,21 @@
+logging:
+  level:
+    root: info
+    com.canyapan.sample: info
+
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: http://localhost/dummy-jwks
+
+fx:
+  api:
+    base-url: http://localhost/api/
+    allowed-currencies: USD,EUR,GBP
+
+sap:
+  s4:
+    base-url: http://localhost/sap/opu/odata/sap/
+    max-token-age: 1s

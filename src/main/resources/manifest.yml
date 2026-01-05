@@ -1,0 +1,6 @@
+applications:
+  - name: spring-btp-fx-sample
+    memory: 1024M
+    path: target/spring-btp-fx-sample.jar
+    services:
+
