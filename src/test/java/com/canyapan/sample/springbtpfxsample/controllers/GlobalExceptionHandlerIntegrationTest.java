@@ -138,7 +138,7 @@ class GlobalExceptionHandlerIntegrationTest {
                 .andExpect(status().isUnprocessableContent())
                 .andExpect(header().string(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE))
                 .andExpect(jsonPath("$.reason").value("Unprocessable Content"))
-                .andExpect(jsonPath("$.message").value("Validation exception occurred. [1], on field 'name', name cannot be null."));
+                .andExpect(jsonPath("$.message").value("A validation error occurred. [1], on field 'name', name cannot be null."));
     }
 
     @Test
@@ -232,7 +232,7 @@ class GlobalExceptionHandlerIntegrationTest {
                 .andExpect(status().isBadRequest())
                 .andExpect(header().string(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE))
                 .andExpect(jsonPath("$.reason").value("Bad Request"))
-                .andExpect(jsonPath("$.message").value("Validation exception occurred. [1], on property 'throwValidationExceptionWhenMissingRequestHeader.intHeader', must be greater than 0."));
+                .andExpect(jsonPath("$.message").value("A validation error occurred. [1], on property 'throwValidationExceptionWhenMissingRequestHeader.intHeader', must be greater than 0."));
     }
 
     @Test

@@ -77,7 +77,7 @@ public class GlobalExceptionHandler {
      */
     @ExceptionHandler(ConstraintViolationException.class)
     public ResponseEntity<ErrorResponse> handleConstraintViolationException(ConstraintViolationException exception) {
-        final StringBuilder sb = new StringBuilder("Validation exception occurred.");
+        final StringBuilder sb = new StringBuilder("A validation error occurred.");
         final AtomicInteger counter = new AtomicInteger(1);
         exception.getConstraintViolations().forEach(e ->
                 sb.append(" [%d], on property '%s', %s.".formatted(counter.getAndIncrement(), e.getPropertyPath(), e.getMessage())));
@@ -178,7 +178,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<ErrorResponse> handleVaLidationBadRequest(MethodArgumentNotValidException exception) {
 
-        final StringBuilder sb = new StringBuilder("Validation exception occurred.");
+        final StringBuilder sb = new StringBuilder("A validation error occurred.");
         final AtomicInteger counter = new AtomicInteger(1);
         exception.getBindingResult().getAllErrors().forEach(e ->
                 sb.append(" [%d], on field '%s', %s.".formatted(counter.getAndIncrement(), ((FieldError) e).getField(), e.getDefaultMessage())));
